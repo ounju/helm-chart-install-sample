@@ -10,3 +10,6 @@ helm install --name andy-kibana elastic/kibana -f kibana-values.yaml
 helm install --name andy-openldap stable/openldap
 helm repo add oteemocharts https://oteemo.github.io/charts
 helm install --name andy-sonatype-nexus oteemocharts/sonatype-nexus -f sonatype-nexus-values.yaml
+# Nexus 포트 포워딩 설정
+kubectl --namespace default port-forward $POD_NAME 8081
+
