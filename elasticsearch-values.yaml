@@ -1,0 +1,3 @@
+replicas: 1
+minimumMasterNodes: 1
+antiAffinity: "best effort"
