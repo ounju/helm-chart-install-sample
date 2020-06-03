@@ -8,4 +8,5 @@ helm repo add elastic https://helm.elastic.co
 helm install --name andy-elasticsearch elastic/elasticsearch -f elasticsearch-values.yaml
 helm install --name andy-kibana elastic/kibana -f kibana-values.yaml
 helm install --name andy-openldap stable/openldap
-helm install --name andy-sonatype-nexus stable/sonatype-nexus -f sonatype-nexus-values.yaml
+helm repo add oteemocharts https://oteemo.github.io/charts
+helm install --name andy-sonatype-nexus oteemocharts/sonatype-nexus -f sonatype-nexus-values.yaml
