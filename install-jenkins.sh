@@ -1,5 +1,7 @@
 helm init
+## Nginx 설치
 helm install --name andy-nginx-ingress stable/nginx-ingress
+## Jenkins 설치
 helm install --name andy-jenkins stable/jenkins -f jenkins-values.yaml
 #helm install --name andy-prometheus stable/prometheus
 #helm install --name andy-metric-server stable/metrics-server
@@ -8,9 +10,10 @@ helm install --name andy-jenkins stable/jenkins -f jenkins-values.yaml
 #helm install --name andy-elasticsearch elastic/elasticsearch -f elasticsearch-values.yaml
 #helm install --name andy-kibana elastic/kibana -f kibana-values.yaml
 #helm install --name andy-openldap stable/openldap
+## Nexus 설치
 helm repo add oteemocharts https://oteemo.github.io/charts
 helm install --name andy-sonatype-nexus oteemocharts/sonatype-nexus -f sonatype-nexus-values.yaml
-## Nexus 포트 포워딩 설정
-kubectl --namespace default port-forward $POD_NAME 8081
-## root 암호는 1111, localhost:32000으로 접속, DataBase INF 생성됨
+## "kubectl get svc | grep nexus" 명령어를 이용하여 NodePort 설정 확인, 예를 들어 확인된 포트가 30284이면 http://127.0.0.1:30284 접속, admin/admin123 로그인.
+## MySQL 설치
 helm install --name andy-mysql stable/mysql -f mysql-values.yaml
+## root 암호는 1111, localhost:32000으로 접속, DataBase INF 생성됨
