@@ -16,8 +16,8 @@ ingress:
     enabled: true
     secretName: nexus-tls
   ## Specify custom rules in addition to or instead of the nexus-proxy rules
-  #rules:
-   #- host: http://nexus.127.0.0.1.nip.io
+  rules:
+   - host: http://nexus.127.0.0.1.nip.io
      #http:
        #paths:
        #- backend:
@@ -28,7 +28,7 @@ ingress:
 service:
   type: ClusterIP
   # name: additional-svc
-  enabled: false
+  enabled: true
   labels: {}
   annotations: {}
   ports:
