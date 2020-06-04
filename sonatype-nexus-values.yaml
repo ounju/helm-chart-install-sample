@@ -15,14 +15,14 @@ ingress:
   tls:
     enabled: true
     secretName: nexus-tls
-  # Specify custom rules in addition to or instead of the nexus-proxy rules
-  rules:
-   - host: http://nexus.127.0.0.1.nip.io
-     http:
-       paths:
-       - backend:
-           serviceName: additional-svc
-           servicePort: 80
+  ## Specify custom rules in addition to or instead of the nexus-proxy rules
+  #rules:
+   #- host: http://nexus.127.0.0.1.nip.io
+     #http:
+       #paths:
+       #- backend:
+           #serviceName: additional-svc
+           #servicePort: 80
 
 ## To use an additional service, set enable to true
 service:
