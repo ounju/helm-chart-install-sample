@@ -1,9 +1,14 @@
 nexus:
+  ## The ports should only be changed if the nexus image uses a different port
+  dockerPort: 5003
+  nexusPort: 8081
   service:
     type: NodePort
 
 nexusProxy:
   enabled: true
+  port: 8080
+  targetPort: 8081
   env:
     nexusDockerHost: 127.0.0.1
     nexusHttpHost: 127.0.0.1
