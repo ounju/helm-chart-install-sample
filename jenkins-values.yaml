@@ -12,7 +12,7 @@ master:
   ingress:
     enabled: true
   prometheus:
-    enabled: true
+    enabled: false
 additionalAgents:
   maven:
     podName: maven
