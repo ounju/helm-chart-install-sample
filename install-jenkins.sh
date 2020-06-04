@@ -1,9 +1,9 @@
 helm init
 ## Nginx 설치
 helm install --name andy-nginx-ingress stable/nginx-ingress
-## Jenkins 설치, 암호: 1111
+## Jenkins 설치
 helm install --name andy-jenkins stable/jenkins -f jenkins-values.yaml
-## http://127.0.0.1:80 으로 접속
+## http://127.0.0.1:80 으로 접속, admin/1111 로그인
 ## Nexus 설치
 helm repo add oteemocharts https://oteemo.github.io/charts
 helm install --name andy-sonatype-nexus oteemocharts/sonatype-nexus -f sonatype-nexus-values.yaml
