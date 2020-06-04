@@ -34,7 +34,7 @@ ingress:
 service:
   type: ClusterIP
   # name: additional-svc
-  enabled: true
+  enabled: false
   labels: {}
   annotations: {}
   ports:
