@@ -1,3 +1,5 @@
+## Helm 설치 및 초기화
+brew install helm@2
 helm init
 ## Nginx 설치
 helm install --name andy-nginx-ingress stable/nginx-ingress
