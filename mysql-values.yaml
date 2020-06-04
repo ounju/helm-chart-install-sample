@@ -1,6 +1,6 @@
 ## Specify password for root user
 ## Default: random 10 character string
-mysqlRootPassword: 1111
+mysqlRootPassword: "1111"
 
 ## Create a database
 mysqlDatabase: INF
