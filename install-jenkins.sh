@@ -13,7 +13,7 @@ helm install --name andy-sonatype-nexus oteemocharts/sonatype-nexus -f sonatype-
 ## mariadb 설치
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install --name andy-mariadb bitnami/mariadb -f mariadb-values.yaml
-## root/1111, infinity/1111/INF, localhost:30001 접속, DataBase INF 생성됨, master 로만 구성함, 
+## root/1111, infinity/1111/INF, localhost:30001 접속, DataBase INF 생성됨, master 로만 구성함
 
 #helm install --name andy-prometheus stable/prometheus
 #helm install --name andy-metric-server stable/metrics-server
