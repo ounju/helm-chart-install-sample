@@ -59,7 +59,7 @@ replication:
 
 ## side-car prometheus exporter
 metrics:
-  enabled: false
+  enabled: true
 
 
 
