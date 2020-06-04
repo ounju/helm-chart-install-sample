@@ -1,22 +1,28 @@
 nexus:
   service:
     type: NodePort
+
+nexusProxy:
+  enabled: true
+  env:
+    nexusDockerHost: 127.0.0.1
+    nexusHttpHost: 127.0.0.1
     
 ingress:
-  enabled: true
-  path: /
-  labels: {}
-  annotations:
+  enabled: false
+  #path: /
+  #labels: {}
+  #annotations:
     ## NOTE: Can't use 'false' due to https://github.com/jetstack/kube-lego/issues/173.
-    kubernetes.io/ingress.allow-http: true
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/ingress.global-static-ip-name: ""
-    kubernetes.io/tls-acme: true
-  tls:
-    enabled: true
-    secretName: nexus-tls
+    #kubernetes.io/ingress.allow-http: true
+    #kubernetes.io/ingress.class: nginx
+    #kubernetes.io/ingress.global-static-ip-name: ""
+    #kubernetes.io/tls-acme: true
+  #tls:
+    #enabled: true
+    #secretName: nexus-tls
   ## Specify custom rules in addition to or instead of the nexus-proxy rules
-  rules: {}
+  #rules: 
    #- host: http://nexus.127.0.0.1.nip.io
      #http:
        #paths:
