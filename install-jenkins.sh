@@ -12,4 +12,5 @@ helm repo add oteemocharts https://oteemo.github.io/charts
 helm install --name andy-sonatype-nexus oteemocharts/sonatype-nexus -f sonatype-nexus-values.yaml
 ## Nexus 포트 포워딩 설정
 kubectl --namespace default port-forward $POD_NAME 8081
+## root 암호는 1111, localhost:32000으로 접속, DataBase INF 생성됨
 helm install --name andy-mysql stable/mysql -f mysql-values.yaml
