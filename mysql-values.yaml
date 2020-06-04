@@ -1,0 +1,17 @@
+## Specify password for root user
+## Default: random 10 character string
+mysqlRootPassword: 1111
+
+## Create a database
+mysqlDatabase: INF
+
+## Configure the service
+## ref: http://kubernetes.io/docs/user-guide/services/
+service:
+  annotations: {}
+  ## Specify a service type
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
+  type: ClusterIP
+  port: 3306
+  nodePort: 32000
+  # loadBalancerIP:
