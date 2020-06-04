@@ -1,4 +1,4 @@
 ingress:
-  enabled: true
-  tls:
-    enabled: false
+  enabled: false
+  #tls:
+    #enabled: false
