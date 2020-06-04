@@ -2,3 +2,15 @@ ingress:
   enabled: false
   #tls:
     #enabled: false
+
+## To use an additional service, set enable to true
+service:
+  type: ClusterIP
+  # name: additional-svc
+  enabled: true
+  labels: {}
+  annotations: {}
+  ports:
+  - name: nexus-service
+    targetPort: 8082
+    port: 8082
