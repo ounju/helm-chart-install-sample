@@ -1,8 +1,8 @@
 nexusProxy:
   enabled: true
   env:
-    nexusDockerHost: docker.andy.com
-    nexusHttpHost: nexus.andy.com
+    nexusDockerHost: docker.inf.com
+    nexusHttpHost: nexus.inf.com
     
 ingress:
   enabled: false
