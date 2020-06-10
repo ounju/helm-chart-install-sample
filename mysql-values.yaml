@@ -1,9 +1,9 @@
 ## Specify password for root user
 ## Default: random 10 character string
-mysqlRootPassword: "1111"
+mysqlRootPassword: "root"
 
 ## Create a database
-mysqlDatabase: INF
+mysqlDatabase: dev_pipelines
 
 ## Configure the service
 ## ref: http://kubernetes.io/docs/user-guide/services/
@@ -14,5 +14,5 @@ service:
   #type: ClusterIP
   type: NodePort
   port: 3306
-  nodePort: 32000
+  nodePort: 3306
   # loadBalancerIP:
