@@ -11,8 +11,8 @@ service:
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   nodePort:
-    master: 3306
-    slave: 3307
+    master: 30001
+    slave: 30002
   
 ## MariaDB admin credentials
 ##
