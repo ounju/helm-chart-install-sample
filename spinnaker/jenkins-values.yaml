@@ -10,7 +10,6 @@ master:
     - configuration-as-code:1.39
     - blueocean:1.23.2
     - github-pullrequest:0.2.8
-  serviceType: NodePort
   ingress:
     enabled: true
     annotations: 
@@ -40,4 +39,3 @@ additionalAgents:
     command: "/bin/sh -c"
     args: "cat"
     TTYEnabled: true
-    
