@@ -1,0 +1,43 @@
+master:
+  imagePullPolicy: "IfNotPresent"
+  adminPassword: "1111"
+  installPlugins:
+    - kubernetes:1.25.3
+    - workflow-job:2.38
+    - workflow-aggregator:2.6
+    - credentials-binding:1.21
+    - git:4.2.2
+    - configuration-as-code:1.39
+    - blueocean:1.23.2
+    - github-pullrequest:0.2.8
+  serviceType: NodePort
+  ingress:
+    enabled: true
+    annotations: 
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: "true"
+      ## Set this path to jenkinsUriPrefix above or use annotations to rewrite path
+      path: "/jenkins"
+    ## configures the hostname e.g. jenkins.example.com
+    hostName: jenkins.andy.com
+
+  prometheus:
+    enabled: false
+additionalAgents:
+  maven:
+    podName: maven
+    customJenkinsLabels: maven
+    # An example of overriding the jnlp container
+    # sideContainerName: jnlp
+    image: jenkins/jnlp-agent-maven
+    tag: latest
+  python:
+    podName: python
+    customJenkinsLabels: python
+    sideContainerName: python
+    image: python
+    tag: "3"
+    command: "/bin/sh -c"
+    args: "cat"
+    TTYEnabled: true
+    

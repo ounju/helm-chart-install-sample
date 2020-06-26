@@ -2,13 +2,13 @@ halyard:
   spinnakerVersion: 1.19.4
   image:
     repository: gcr.io/spinnaker-marketplace/halyard
-    #tag: 1.32.0
-    #pullSecrets: []
+    tag: 1.32.0
+    pullSecrets: []
   # Set to false to disable persistence data volume for halyard
   persistence:
-    enabled: false
+    enabled: true
   # Provide additional parameters to halyard deploy apply command
-  #additionalInstallParameters: []
+  additionalInstallParameters: []
   # Provide a config map with Hal commands that will be run the core config (storage)
   # The config map should contain a script in the config.sh key
   additionalScripts:
@@ -32,8 +32,8 @@ halyard:
   ## Define custom profiles for Spinnaker services. Read more for details:
   ## https://www.spinnaker.io/reference/halyard/custom/#custom-profiles
   ## The contents of the files will be passed through `tpl`, so value interpolation is supported.
-  #additionalProfileConfigMaps:
-  #  data: {}
+  additionalProfileConfigMaps:
+    data: {}
       ## if you're running spinnaker behind a reverse proxy such as a GCE ingress
       ## you may need the following profile settings for the gate profile.
       ## see https://github.com/spinnaker/spinnaker/issues/1630
@@ -50,7 +50,7 @@ halyard:
   ## Define custom settings for Spinnaker services. Read more for details:
   ## https://www.spinnaker.io/reference/halyard/custom/#custom-service-settings
   ## You can use it to add annotations for pods, override the image, etc.
-  #additionalServiceSettings: {}
+  additionalServiceSettings: {}
     # deck.yml:
     #   artifactId: gcr.io/spinnaker-marketplace/deck:2.9.0-20190412012808
     #   kubernetes:
@@ -63,7 +63,7 @@ halyard:
 
   ## Populate to provide a custom local BOM for Halyard to use for deployment. Read more for details:
   ## https://www.spinnaker.io/guides/operator/custom-boms/#boms-and-configuration-on-your-filesystem
-  #bom: ~
+  bom: ~
   #   artifactSources:
   #     debianRepository: https://dl.bintray.com/spinnaker-releases/debians
   #     dockerRegistry: gcr.io/spinnaker-marketplace
@@ -111,7 +111,7 @@ halyard:
 
   ## Uncomment the following resources definitions to control the cpu and memory
   # resources allocated for the halyard pod
-  #resources: {}
+  resources: {}
     # requests:
     #   memory: "1Gi"
     #   cpu: "100m"
@@ -164,8 +164,8 @@ kubeConfig:
   # Use this when you want to register arbitrary clusters with Spinnaker
   # Upload your ~/kube/.config to a secret
   enabled: false
-  secretName: my-kubeconfig
-  secretKey: config
+  # secretName: my-kubeconfig
+  # secretKey: config
   # Use this when you want to configure halyard to reference a kubeconfig from s3
   # This allows you to keep your kubeconfig in an encrypted s3 bucket
   # For more info visit:
@@ -175,6 +175,12 @@ kubeConfig:
   contexts:
   - default
   deploymentContext: default
+  # Use this to limit the namespaces this kubernetes account will access.
+  # Note, if you use nameSpaces, omittedNameSpaces will not be used.
+  # Note, the casing of the nameSpace variable here.
+  # nameSpaces:
+  # - namespace1
+  # - namespace2
   omittedNameSpaces:
   - kube-system
   - kube-public
@@ -198,24 +204,24 @@ kubeConfig:
 
 # Change this if youd like to expose Spinnaker outside the cluster
 ingress:
-  enabled: false
-  # host: spinnaker.example.org
-  # annotations:
-    # ingress.kubernetes.io/ssl-redirect: 'true'
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  host: spinnaker.andy.com
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: 'true'
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
   # tls:
   #  - secretName: -tls
   #    hosts:
   #      - domain.com
 
 ingressGate:
-  enabled: false
-  # host: gate.spinnaker.example.org
-  # annotations:
-    # ingress.kubernetes.io/ssl-redirect: 'true'
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  host: gate.spinnaker.andy.com
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: 'true'
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
   # tls:
   #  - secretName: -tls
   #    hosts:
@@ -306,6 +312,8 @@ azs:
 rbac:
   # Specifies whether RBAC resources should be created
   create: true
+  # Specifies whether PSP resources should be created
+  pspEnabled: false
 
 serviceAccount:
   # Specifies whether a ServiceAccount should be created
