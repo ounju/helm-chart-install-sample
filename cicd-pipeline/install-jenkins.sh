@@ -27,7 +27,8 @@ helm install --name andy-mariadb bitnami/mariadb -f mariadb-values.yaml
 ## root 암호는 1111, localhost:32000으로 접속, DataBase INF 생성됨
 
 helm repo add gitlab https://charts.gitlab.io/
-helm install gitlab gitlab/gitlab --set global.hosts.domain=gitlab.inf.com --set certmanager-issuer.email=kimounju@gmail.com --set global.edition=ce --set gitlab-runner.runners.privileged=true --set hosts.https=false
+helm install gitlab gitlab/gitlab --set global.hosts.domain=gitlab.andy.com --set certmanager-issuer.email=kimounju@gmail.com --set global.edition=ce --set gitlab-runner.runners.privileged=true --set hosts.https=false
+helm install gitlab gitlab/gitlab --set global.hosts.domain=gitlab.andy.com --set certmanager-issuer.email=kimounju@gmail.com --set global.edition=ce
 ## Root 암호
 # kubectl get secret gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode ; echo
 # helm get values gitlab > gitlab.yaml
