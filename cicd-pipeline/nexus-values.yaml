@@ -5,7 +5,7 @@ nexusProxy:
     nexusHttpHost: nexus.inf.com
     
 ingress:
-  enabled: false
+  enabled: true
 
 ## To use an additional service, set enable to true
 service:

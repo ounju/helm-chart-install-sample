@@ -3,7 +3,7 @@
 mysqlRootPassword: "root"
 
 ## Create a database
-mysqlDatabase: dev_pipelines
+mysqlDatabase: INF
 
 ## Configure the service
 ## ref: http://kubernetes.io/docs/user-guide/services/
