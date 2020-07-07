@@ -859,8 +859,8 @@ configs:
 
     # Argo expects the password in the secret to be bcrypt hashed. You can create this hash with
     # `htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'`
-    # 임시 암호를 "1111"로 설정함. 운영 환경 설치할때는 변경해야 함!!!
-    argocdServerAdminPassword: "$2a$10$z6DA5uGyaEdG0fwxn1HLWe.YX4Yj/EZ873qu3xxBjzRk1AEPZx8ZW"
+    # 임시 암호를 "admin123"로 설정함. 운영 환경 설치할때는 변경해야 함!!!
+    argocdServerAdminPassword: "$2a$10$Uv6vuYpRQfpxsdEtxnUpaujTauM9XdXhzMHE/Hxn0.7X3MhOHs.wK"
     # Password modification time defaults to current time if not set
     # argocdServerAdminPasswordMtime: "2006-01-02T15:04:05Z"
 
